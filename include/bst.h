@@ -16,18 +16,18 @@ class BST {
  public:
     Node* root;
     BST() : root(nullptr) {}
-    int s(T val) {
-        return sNode(root, val);
+    int search(T val) {
+        return searchNode(root, val);
     }
-    int sNode(Node* root, T val) {
+    int searchNode(Node* root, T val) {
         if (root == nullptr)
             return 0;
         if (val < root->val)
-            return sNode(root->lef, val);
+            return searchNode(root->lef, val);
         if (root->val == val)
             return root->c;
         else
-            return sNode(root->rig, val);
+            return searchNode(root->rig, val);
     }
     int depth() {
         return getDepth(root) - 1;
@@ -39,15 +39,15 @@ class BST {
             return 0;
     }
     void add(T val) {
-        root = insWords(root, val);
+        root = insertWords(root, val);
     }
-    Node* insWords(Node* ptr, T words) {
+    Node* insertWords(Node* ptr, T words) {
         if (!ptr) {
             ptr = new Node(words);
         } else if (ptr->val > words) {
-            ptr->lef = insWords(ptr->lef, words);
+            ptr->lef = insertWords(ptr->lef, words);
         } else if (ptr->val < words) {
-            ptr->rig = insWords(ptr->rig, words);
+            ptr->rig = insertWords(ptr->rig, words);
         } else if (ptr->val == words) {
             ptr->c++;
         }
