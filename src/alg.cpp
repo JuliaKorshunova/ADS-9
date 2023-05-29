@@ -11,8 +11,8 @@ BST<std::string> makeTree(const char* filename) {
     std::ifstream file(filename);
     if (file) {
         while (!file.eof()) {
-            char words = toolower(file.get());
-            if (!alpha(words)) {
+            char words = tolower(file.get());
+            if (!isalpha(words)) {
                 if (!war.empty()) {
                     peace.add(war);
                 }
