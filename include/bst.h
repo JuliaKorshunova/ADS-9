@@ -12,6 +12,7 @@ class BST {
         Node* lef;
         explicit Node(T val) : val(val), count(1), rig(nullptr), lef(nullptr) {}
     };
+ 
  public:
     Node* root;
     BST() : root(nullptr) {}
