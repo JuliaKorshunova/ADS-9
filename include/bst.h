@@ -7,10 +7,10 @@ class BST {
  private:
     struct Node {
         T val;
-        int count;
+        int c;
         Node* rig;
         Node* lef;
-        explicit Node(T val) : val(val), count(1), rig(nullptr), lef(nullptr) {}
+        explicit Node(T val) : val(val), c(1), rig(nullptr), lef(nullptr) {}
     };
  
  public:
@@ -25,7 +25,7 @@ class BST {
         if (val < root->val)
             return sNode(root->lef, val);
         if (root->val == val)
-            return root->count;
+            return root->c;
         else
             return sNode(root->rig, val);
     }
@@ -41,17 +41,17 @@ class BST {
     void add(T val) {
         root = insWords(root, val);
     }
-    Node* insWords(Node* nptr, T words) {
-        if (!nptr) {
-            nptr = new Node(words);
-        } else if (nptr->val > words) {
-            nptr->lef = insWords(nptr->lef, words);
-        } else if (nptr->val < words) {
-            nptr->rig = insWords(nptr->rig, words);
+    Node* insWords(Node* ptr, T words) {
+        if (!ptr) {
+            ptr = new Node(words);
+        } else if (ptr->val > words) {
+            ptr->lef = insWords(ptr->lef, words);
+        } else if (ptr->val < words) {
+            ptr->rig = insWords(ptr->rig, words);
         } else if (ptr->val == words) {
-            nptr->count++;
+            ptr->c++;
         }
-        return nptr;
+        return ptr;
     }
 };
 #endif  // INCLUDE_BST_H_
