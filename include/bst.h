@@ -12,7 +12,7 @@ class BST {
         Node* lef;
         explicit Node(T val) : val(val), c(1), rig(nullptr), lef(nullptr) {}
     };
- 
+
  public:
     Node* root;
     BST() : root(nullptr) {}
@@ -29,12 +29,12 @@ class BST {
         else
             return sNode(root->rig, val);
     }
-    int thedepth() {
-        return getTheDepth(root) - 1;
+    int depth() {
+        return getDepth(root) - 1;
     }
-    int getTheDepth(Node* root) {
+    int getDepth(Node* root) {
         if (root)
-            return std::max(getTheDepth(root->lef), getTheDepth(root->rig)) + 1;
+            return std::max(getDepth(root->lef), getDepth(root->rig)) + 1;
         else
             return 0;
     }
